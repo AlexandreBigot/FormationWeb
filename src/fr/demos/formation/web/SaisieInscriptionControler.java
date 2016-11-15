@@ -35,16 +35,17 @@ public class SaisieInscriptionControler extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-// je crée ma session
+// j'identifie et je stocke la session actuelle
 		HttpSession session = request.getSession();
 // on cast l'atribut de session en local time et on le mets en valeur de time
 // si on a pas encore fait de doGet l'attribut "heurePremiereConnexion" de la session est null
 // si on a déja fait un doGet on recopie l'heure de première session		
-		LocalTime time = (LocalTime)session.getAttribute("heurePremiereConnexion");
-		if (time == null){
-			time = LocalTime.now();
-			session.setAttribute("heurePremiereConnexion", time);
-		}
+		//  /!\  on a déplacé ça dans le WebListener "DemoListener"   /!\
+//		LocalTime time = (LocalTime)session.getAttribute("heurePremiereConnexion");
+//		if (time == null){
+//			time = LocalTime.now();
+//			session.setAttribute("heurePremiereConnexion", time);
+//		}
 		
 // je créée ma source de pays
 		ArrayList<String> listePays = new ArrayList<String>();
